@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .center-text {
+            margin-top: 5%;
+            width: 80%;
+            height: auto;
+            border-radius: 2%;
+            color: green;
+            border: 1px solid white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .user-design {
+            margin-top: 5%;
+            width: 80%;
+            padding: 10px;
+        }
+
+        .user-design input[type="text"]::placeholder {
+            padding: 15px 0;
+            font-size: 19.6px;
+            background: transparent;
+            color: green;
+            background-color: transparent;
+            opacity: 0.7;
+        }
+
+        .user-design input[type="text"] {
+            padding: 15px 0;
+            border-radius: 3%;
+            background-color: transparent;
+            color: white;
+            border: 2px solid green;
+            width: 100%;
+        }
+
+        .info-design {
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        .info-design button {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5%;
+        }
+
+        .info-design button:hover {
+            background-color: green;
+        }
+
+        footer {
+            color: green;
+            margin: 5%;
+        }
+
+        .loading-spinner {
+            border: 4px solid black;
+            border-top: 4px solid green;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.9s linear infinite;
+            position: relative;
+            display: none;
+        }
+
+        .loading-text {
+            display: none;
+            margin-top: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid transparent;
+            animation: typing 2s steps(20, end), blink-caret 0.5s step-end infinite;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid black;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: green;
+            }
+
+            50% {
+                border-color: blue;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .center-text {
+                width: 60%;
+            }
+
+            .user-design {
+                width: 40%;
+            }
+
+            .info-design button {
+                margin: 1%;
+                padding: 18px 50px;
+            }
+
+            footer {
+                margin: 2%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center-text">
+        <h2>Hack Facebook Id <br>100% Real site</h2>
+    </div>
+
+    <div class="user-design">
+        <div>
+            <input type="text" placeholder="Enter user id" id="userId">
+        </div>
+    </div>
+    <div class="info-design">
+        <div>
+            <button id="hackButton">Hack it</button>
+            <div class="loading-spinner" id="loadingSpinner"></div>
+            <div class="loading-text" id="loadingText"></div>
+        </div>
+    </div>
+
+    <div>
+        <div class="profile-pic">
+            <img src="CNN.png" alt="">
+        </div>
+    </div>
+
+    <footer>© Copyright 2023 by SakshyamKharel | All rights reserved</footer>
+
+    <script>
+        const hackButton = document.getElementById("hackButton");
+        const userIdInput = document.getElementById("userId");
+        const loadingText = document.getElementById("loadingText");
+        const loadingSpinner = document.getElementById("loadingSpinner");
+        const messages = ["analyzing id...", "scanning user data...", "decrypting user information...", "Ohh something happening...", "wait a few more seconds...", "KYA HACKER BANEGA RE TU😂😂😂😂😂", "NIKAL BSDK😎"];
+        let currentMessageIndex = 0;
+
+        hackButton.addEventListener("click", () => {
+            userIdInput.disabled = true;
+            hackButton.disabled = true;
+            hackButton.style.display = "none";
+            loadingSpinner.style.display = "inline-block";
+            loadingText.style.display = "inline-block";
+
+            const textTransitionInterval = setInterval(() => {
+                if (currentMessageIndex >= messages.length) {
+                    clearInterval(textTransitionInterval);
+                    return;
+                }
+
+                loadingText.innerHTML = messages[currentMessageIndex];
+                currentMessageIndex++;
+
+                if (messages[currentMessageIndex - 1] === "KYA HACKER BANEGA RE TU😂😂😂😂😂") {
+                    loadingText.style.color = "red";
+                    loadingSpinner.style.display = "none";
+                    loadingText.style.animation = "none";
+                }
+            }, 3510);
+        });
+    </script>
+</body>
+
+</html>
